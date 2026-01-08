@@ -151,14 +151,14 @@ def print_help():
     help_table.add_column('Command', style='bold cyan', width=25)
     help_table.add_column('Description', style='white', width=50)
     
-    help_table.add_row('[bold]erun name command[/bold]', 'Activate environment by name (e.g., erun dev)')
-    help_table.add_row('[bold]erun s|select command[/bold]', 'Select and activate an environment interactively')
-    help_table.add_row('[bold]erun l|list[/bold]', 'List all configured environments')
-    help_table.add_row('[bold]erun h|help[/bold]', 'Show this help message')
+    help_table.add_row('[bold]envdo name command[/bold]', 'Activate environment by name (e.g., envdo dev claude)')
+    help_table.add_row('[bold]envdo s|select command[/bold]', 'Select and activate an environment interactively')
+    help_table.add_row('[bold]envdo l|list[/bold]', 'List all configured environments')
+    help_table.add_row('[bold]envdo h|help[/bold]', 'Show this help message')
     
     panel = Panel(
         help_table,
-        title='[bold magenta]🔧 erun - Environment Manager[/bold magenta]',
+        title='[bold magenta]🔧 envdo - Environment Manager[/bold magenta]',
         border_style='bright_blue',
         padding=(1, 2)
     )
@@ -167,5 +167,5 @@ def print_help():
 
 
 if __name__ == '__main__':
-    config = load_config('~/.erun.json')
+    config = load_config('~/.envdo.json')
     select_env(config)
