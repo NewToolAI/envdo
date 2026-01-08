@@ -20,8 +20,8 @@ EXAMPLE_CONFIG = '''
 
 def run_command(argv: list):
     if len(argv) <= 2:
-        utils.print_help()
-        sys.exit(0)
+        utils.print_error(f'Please specify a command to run (e.g., envdo {sys.argv[1]} echo "Hello, World!")')
+        sys.exit(1) 
 
     result = subprocess.run(argv[2:])
     return result.returncode
@@ -30,7 +30,7 @@ def run_command(argv: list):
 def run_envdo(config_path):
     if len(sys.argv) <= 1:
         utils.print_help()
-        sys.exit(0)
+        sys.exit(1)
 
     try: 
         config = utils.load_config(config_path)
@@ -42,20 +42,24 @@ def run_envdo(config_path):
         print(VERSION)
         sys.exit(0)
 
-    elif sys.argv[1] in ('l', 'list'):
+    elif sys.argv[1] in ('l', 'ls', 'list'):
         utils.list_env(config)
         sys.exit(0)
 
-    elif sys.argv[1] in ('s', 'select'):
+    elif sys.argv[1] in ('s', 'select', 'i', 'interactive'):
         config = utils.load_config(config_path)
         utils.select_env(config)
 
     elif sys.argv[1] in config.keys():
         utils.set_env(sys.argv[1], config)
 
-    else:
+    elif sys.argv[1] in ('h', 'help', '-h', '--help'):
         utils.print_help()
         sys.exit(0)
+
+    else:
+        utils.print_error(f'Unknown configuration: {sys.argv[1]}. Available: {", ".join(config.keys())}')
+        sys.exit(1)
 
 
 def run():

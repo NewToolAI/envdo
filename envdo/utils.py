@@ -71,7 +71,7 @@ def set_env(name: str, config: dict):
     
     if name not in config:
         console.print(f'[bold red]✗[/bold red] Configuration "{name}" not found. Available: {", ".join(config.keys())}')
-        return False
+        return None
     
     selected_config = config[name]
     os.environ.update(selected_config)
@@ -148,13 +148,13 @@ def print_help():
         padding=(0, 2)
     )
     
-    help_table.add_column('Command', style='bold cyan', width=25)
-    help_table.add_column('Description', style='white', width=50)
+    help_table.add_column('Command', style='bold cyan', width=30)
+    help_table.add_column('Description', style='white', width=55)
     
     help_table.add_row('[bold]envdo name command[/bold]', 'Activate environment by name (e.g., envdo dev claude)')
-    help_table.add_row('[bold]envdo s|select command[/bold]', 'Select and activate an environment interactively')
+    help_table.add_row('[bold]envdo s|select|i|interactive command[/bold]', 'Select and activate an environment interactively')
     help_table.add_row('[bold]envdo l|list[/bold]', 'List all configured environments')
-    help_table.add_row('[bold]envdo h|help[/bold]', 'Show this help message')
+    help_table.add_row('[bold]envdo h|help|-h|--help[/bold]', 'Show this help message')
     
     panel = Panel(
         help_table,
