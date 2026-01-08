@@ -56,6 +56,8 @@ Create a configuration file `.envdo.json` (in project directory) or `~/.envdo.js
 
 ## Usage
 
+![Demo 0](demo-0.png)
+
 ### List All Environment Configurations
 
 ```bash
@@ -85,8 +87,8 @@ envdo gpt-5.2 <command>
 ```bash
 envdo -v          # Show version
 envdo --version
-envdo h           # Show help
-envdo help
+envdo -h          # Show help
+envdo --help
 ```
 
 ## Configuration Notes

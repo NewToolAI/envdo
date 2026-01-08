@@ -56,6 +56,8 @@ pip install git+https://github.com/NewToolAI/envdo.git
 
 ## 使用方法
 
+![Demo 0](demo-0.png)
+
 ### 列出所有环境配置
 
 ```bash
@@ -85,8 +87,8 @@ envdo gpt-5.2 <command>
 ```bash
 envdo -v          # 显示版本
 envdo --version
-envdo h           # 显示帮助
-envdo help
+envdo -h          # 显示帮助
+envdo --help
 ```
 
 ## 配置说明

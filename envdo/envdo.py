@@ -47,10 +47,18 @@ def run_envdo(config_path):
         sys.exit(0)
 
     elif sys.argv[1] in ('s', 'select', 'i', 'interactive'):
+        if len(sys.argv) <= 2:
+            utils.print_error(f'Please specify a command to run (e.g., envdo {sys.argv[1]} echo "Hello, World!")')
+            sys.exit(1) 
+
         config = utils.load_config(config_path)
         utils.select_env(config)
 
     elif sys.argv[1] in config.keys():
+        if len(sys.argv) <= 2:
+            utils.print_error(f'Please specify a command to run (e.g., envdo {sys.argv[1]} echo "Hello, World!")')
+            sys.exit(1) 
+        
         utils.set_env(sys.argv[1], config)
 
     elif sys.argv[1] in ('h', 'help', '-h', '--help'):
@@ -62,14 +70,20 @@ def run_envdo(config_path):
         sys.exit(1)
 
 
+def find_config_path():
+    current = Path.cwd()
+    for parent in [current] + list(current.parents):
+        config_path = parent / '.envdo.json'
+        if config_path.exists():
+            return config_path
+    return Path('~/.envdo.json').expanduser()
+
+
 def run():
-    config_path = Path('./.envdo.json')
+    config_path = find_config_path()
 
     if not config_path.exists():
-        config_path = Path('~/.envdo.json').expanduser()
-
-        if not config_path.exists():
-            config_path.write_text(EXAMPLE_CONFIG.strip())
+        config_path.write_text(EXAMPLE_CONFIG.strip())
     
     run_envdo(config_path)
     return_code = run_command(sys.argv)
