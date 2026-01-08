@@ -8,12 +8,16 @@
 - 🎯 **多环境管理** - 支持配置多个环境，方便快速切换
 - 🔒 **敏感信息保护** - 自动隐藏敏感信息（TOKEN、KEY、PASSWORD 等）
 - 💡 **交互式选择** - 支持交互式选择环境配置
-- 🎨 **美观输出** - 提供清晰美观的终端输出
+- 🎨 **美观输出** - 使用 rich 库提供清晰美观的终端输出
 
 ## 安装
 
 ```bash
 pip install envdo
+```
+
+```bash
+pip install git+https://github.com/zhangsl0/envdo.git
 ```
 
 ## 配置
