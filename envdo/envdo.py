@@ -5,11 +5,11 @@ from pathlib import Path
 from envdo import utils
 
 
-VERSION = '0.0.5'
+VERSION = '0.1.0'
 
 EXAMPLE_CONFIG = '''
 {
-    "deepseek-3.2": {
+    "example": {
         "ANTHROPIC_MODEL": "deepseek-reasoner",
         "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
         "ANTHROPIC_AUTH_TOKEN": "xxx"
@@ -67,15 +67,18 @@ def run():
         if not config_path.exists():
             config_path.write_text(EXAMPLE_CONFIG.strip())
     
-    try:
-        run_envdo(config_path)
-    except Exception as e:
-        utils.print_error(f'Error: {e}')
-        sys.exit(1)
-
+    run_envdo(config_path)
     return_code = run_command(sys.argv)
     sys.exit(return_code)
 
 
+def main():
+    try:
+        run()
+    except Exception as e:
+        utils.print_error(f'Error: {e}')
+        sys.exit(1)
+
+
 if __name__ == '__main__':
-    run()
+    main()
