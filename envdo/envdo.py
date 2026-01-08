@@ -7,6 +7,16 @@ from envdo import utils
 
 VERSION = '0.0.1'
 
+EXAMPLE_CONFIG = '''
+{
+    "deepseek-3.2": {
+        "ANTHROPIC_MODEL": "deepseek-reasoner",
+        "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "xxx"
+    }
+}
+'''
+
 
 def run_command(argv: list):
     subprocess.run(argv[2:], check=False, shell=True)
@@ -49,9 +59,8 @@ def run():
     if not config_path.exists():
         config_path = Path('~/.envdo.json').expanduser()
 
-        if not config_path.parent.exists():
-            config_path.parent.mkdir(parents=True, exist_ok=True)
-            config_path.touch()
+        if not config_path.exists():
+            config_path.write_text(EXAMPLE_CONFIG.strip())
     
     try:
         run_envdo(config_path)
