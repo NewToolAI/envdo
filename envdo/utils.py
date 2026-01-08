@@ -9,6 +9,21 @@ from rich.console import Console
 from rich.prompt import Prompt
 
 
+def find_config():
+    current = Path.cwd()
+    for parent in [current] + list(current.parents):
+        config_path = parent / '.envdo.json'
+        if config_path.exists():
+            return config_path
+    
+    config_path = Path('~/.envdo.json').expanduser()
+    
+    if config_path.exists():
+        return config_path
+    else:
+        return None
+
+
 def load_config(path: str):
     path = Path(path).expanduser()
 
@@ -158,7 +173,7 @@ def print_help():
     
     panel = Panel(
         help_table,
-        title='[bold magenta]🔧 envdo - Help[/bold magenta]',
+        title='[bold magenta]⚙️ envdo - Help[/bold magenta]',
         border_style='bright_blue',
         padding=(1, 2)
     )

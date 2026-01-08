@@ -1,3 +1,4 @@
+import os
 import sys
 import subprocess
 from pathlib import Path
@@ -18,16 +19,21 @@ EXAMPLE_CONFIG = '''
 '''
 
 
-def run_command(argv: list):
-    if len(argv) <= 2:
+def run_command():
+    if len(sys.argv) <= 2:
         utils.print_error(f'Please specify a command to run (e.g., envdo {sys.argv[1]} echo "Hello, World!")')
         sys.exit(1) 
 
-    result = subprocess.run(argv[2:])
+    result = subprocess.run(sys.argv[2:], shell=True, executable=os.environ.get('SHELL'))
     return result.returncode
 
 
-def run_envdo(config_path):
+def run_envdo():
+    config_path = utils.find_config()
+
+    if not config_path.exists():
+        config_path.write_text(EXAMPLE_CONFIG.strip())
+    
     if len(sys.argv) <= 1:
         utils.print_help()
         sys.exit(1)
@@ -70,29 +76,11 @@ def run_envdo(config_path):
         sys.exit(1)
 
 
-def find_config_path():
-    current = Path.cwd()
-    for parent in [current] + list(current.parents):
-        config_path = parent / '.envdo.json'
-        if config_path.exists():
-            return config_path
-    return Path('~/.envdo.json').expanduser()
-
-
-def run():
-    config_path = find_config_path()
-
-    if not config_path.exists():
-        config_path.write_text(EXAMPLE_CONFIG.strip())
-    
-    run_envdo(config_path)
-    return_code = run_command(sys.argv)
-    sys.exit(return_code)
-
-
 def main():
     try:
-        run()
+        run_envdo()
+        return_code = run_command()
+        sys.exit(return_code)
     except Exception as e:
         utils.print_error(f'Error: {e}')
         sys.exit(1)
