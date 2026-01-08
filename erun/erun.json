@@ -1,0 +1,12 @@
+{
+    "deepseek-3.2": {
+        "ANTHROPIC_MODEL": "deepseek-reasoner",
+        "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "xxx"
+    },
+    "glm-4.7": {
+        "ANTHROPIC_MODEL": "glm-4.7",
+        "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "xxx"
+    }
+}
