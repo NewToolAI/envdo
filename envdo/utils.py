@@ -148,7 +148,7 @@ def print_help():
         padding=(0, 2)
     )
     
-    help_table.add_column('Command', style='bold cyan', width=30)
+    help_table.add_column('Command', style='bold cyan', width=37)
     help_table.add_column('Description', style='white', width=55)
     
     help_table.add_row('[bold]envdo name command[/bold]', 'Activate environment by name (e.g., envdo dev claude)')
