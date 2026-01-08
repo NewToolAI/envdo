@@ -19,7 +19,8 @@ EXAMPLE_CONFIG = '''
 
 
 def run_command(argv: list):
-    subprocess.run(argv[2:], check=False, shell=True)
+    result = subprocess.run(argv[2:])
+    return result.returncode
 
 
 def run_envdo(config_path):
@@ -68,8 +69,8 @@ def run():
         utils.print_error(f'Error: {e}')
         sys.exit(1)
 
-    run_command(sys.argv)
-    sys.exit(0)
+    return_code = run_command(sys.argv)
+    sys.exit(return_code)
 
 
 if __name__ == '__main__':
