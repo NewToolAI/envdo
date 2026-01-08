@@ -1,4 +1,3 @@
-import os
 import sys
 import subprocess
 from pathlib import Path
@@ -6,7 +5,7 @@ from pathlib import Path
 from envdo import utils
 
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 EXAMPLE_CONFIG = '''
 {
@@ -27,7 +26,7 @@ def run_command():
         utils.print_error(f'Please specify a command to run (e.g., envdo {sys.argv[1]} echo "Hello, World!")')
         sys.exit(1) 
 
-    result = subprocess.run(sys.argv[2:], shell=True, executable=os.environ.get('SHELL'))
+    result = subprocess.run(sys.argv[2:])
     return result.returncode
 
 
