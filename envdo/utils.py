@@ -153,7 +153,7 @@ def print_help():
     
     help_table.add_row('[bold]envdo name command[/bold]', 'Activate environment by name (e.g., envdo dev claude)')
     help_table.add_row('[bold]envdo s|select|i|interactive command[/bold]', 'Select and activate an environment interactively')
-    help_table.add_row('[bold]envdo l|list[/bold]', 'List all configured environments')
+    help_table.add_row('[bold]envdo l|ls|list[/bold]', 'List all configured environments')
     help_table.add_row('[bold]envdo h|help|-h|--help[/bold]', 'Show this help message')
     
     panel = Panel(

@@ -58,7 +58,7 @@ def run_envdo(config_path):
         sys.exit(0)
 
     else:
-        utils.print_error(f'Unknown configuration: {sys.argv[1]}. Available: {", ".join(config.keys())}')
+        utils.print_help()
         sys.exit(1)
 
 
