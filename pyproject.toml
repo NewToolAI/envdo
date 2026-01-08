@@ -1,5 +1,5 @@
 [project]
-name = "erun"
+name = "envdo"
 version = "0.0.1"
 description = "Add your description here"
 readme = "README.md"
@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "https://github.com/NewToolAI/erun"
+repository = "https://github.com/NewToolAI/envdo"
 
 [project.scripts]
-erun = "erun.erun:run"
+envdo = "envdo.envdo:run"
