@@ -1,10 +1,9 @@
 import sys
 import subprocess
+from pathlib import Path
 
 from envdo import utils
 
-
-CONFIG = '~/.envdo/config.json'
 
 VERSION = '0.0.1'
 
@@ -17,8 +16,12 @@ def run_envdo(config_path):
     if len(sys.argv) <= 1:
         utils.print_help()
         sys.exit(0)
-    
-    config = utils.load_config(config_path)
+
+    try: 
+        config = utils.load_config(config_path)
+    except Exception as e:
+        utils.print_error(f'Error loading config. Please check the file format. Path: {config_path}')
+        sys.exit(1)
 
     if sys.argv[1] in ('-v', '--version'):
         print(VERSION)
@@ -41,8 +44,17 @@ def run_envdo(config_path):
 
 
 def run():
+    config_path = Path('./.envdo.json')
+
+    if not config_path.exists():
+        config_path = Path('~/.envdo.json').expanduser()
+
+        if not config_path.parent.exists():
+            config_path.parent.mkdir(parents=True, exist_ok=True)
+            config_path.touch()
+    
     try:
-        run_envdo(CONFIG)
+        run_envdo(config_path)
     except Exception as e:
         utils.print_error(f'Error: {e}')
         sys.exit(1)
