@@ -93,7 +93,7 @@ envdo help
 
 - Configuration file priority: `.envdo.json` in current directory > `~/.envdo.json` in user directory
 - On first run, if the configuration file does not exist, an example configuration file will be automatically created
-- Sensitive information (containing keywords TOKEN, KEY, PASSWORD, SECRET, AUTH, CREDENTIAL, API, etc.) will be automatically displayed as `***`
+- Sensitive information (containing keywords TOKEN, KEY, PASSWORD, SECRET, AUTH, CREDENTIAL, etc.) will be automatically displayed as `***`
 
 ## License
 

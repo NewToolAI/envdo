@@ -93,7 +93,7 @@ envdo help
 
 - 配置文件优先级：当前目录的 `.envdo.json` > 用户目录的 `~/.envdo.json`
 - 首次运行时，如果配置文件不存在，会自动创建示例配置文件
-- 敏感信息（包含 TOKEN、KEY、PASSWORD、SECRET、AUTH、CREDENTIAL、API 等关键词）会自动显示为 `***`
+- 敏感信息（包含 TOKEN、KEY、PASSWORD、SECRET、AUTH、CREDENTIAL 等关键词）会自动显示为 `***`
 
 ## 许可证
 
