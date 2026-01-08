@@ -6,14 +6,17 @@ from pathlib import Path
 from envdo import utils
 
 
-VERSION = '0.0.6'
+VERSION = '0.1.0'
 
 EXAMPLE_CONFIG = '''
 {
-    "example": {
+    "example-1": {
         "ANTHROPIC_MODEL": "deepseek-reasoner",
         "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
         "ANTHROPIC_AUTH_TOKEN": "xxx"
+    },
+    "example-2": {
+        "ENV_VAR": "xxx",
     }
 }
 '''

@@ -1,6 +1,6 @@
 [project]
 name = "envdo"
-version = "0.0.6"
+version = "0.1.0"
 description = "为命令行程序配置临时的启动环境变量，特别适合为 claude code 配置切换模型。"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -12,4 +12,4 @@ dependencies = [
 repository = "https://github.com/NewToolAI/envdo"
 
 [project.scripts]
-envdo = "envdo.envdo:main"
+envdo = "envdo.cli:main"
