@@ -7,15 +7,15 @@
 
 \[ [中文](README_zh.md) | English \]
 
-Configure temporary environment variables for command-line programs, particularly useful for switching models in claude code.
+Configure environment variables for Python code or command-line programs, providing dotenv management with group-based switching.
 
 ## Features
 
-- 🚀 **Temporary Environment Configuration** - Set temporary environment variables for command-line programs without affecting system environment
-- 🎯 **Multi-Environment Management** - Support multiple environment configurations for quick switching
-- 🔒 **Sensitive Information Protection** - Automatically hide sensitive information (TOKEN, KEY, PASSWORD, etc.)
-- 💡 **Interactive Selection** - Support interactive environment configuration selection
-- 🎨 **Beautiful Output** - Use the rich library for clear and beautiful terminal output
+- **Group Environment Configuration** - Configure a set of environment variables for programs without affecting the system environment
+- **Multi-Environment Management** - Support multiple environment configurations for quick switching
+- **Sensitive Information Protection** - Automatically hide sensitive information (TOKEN, KEY, PASSWORD, etc.)
+- **Interactive Selection** - Support interactive environment configuration selection
+- **Clear Output** - Use the rich library for clear terminal output
 
 ## Installation
 
