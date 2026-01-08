@@ -24,7 +24,7 @@ pip install envdo
 ```
 
 ```bash
-pip install git+https://github.com/zhangsl0/envdo.git
+pip install git+https://github.com/NewToolAI/envdo.git
 ```
 
 ## 配置
