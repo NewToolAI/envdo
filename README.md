@@ -1,16 +1,23 @@
 # envdo
 
-为命令行程序配置临时的启动环境变量，特别适合为 claude code 配置切换模型。
+[![PyPI version](https://badge.fury.io/py/envdo.svg)](https://badge.fury.io/py/envdo)
+[![Python version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![GitHub Repo](https://img.shields.io/badge/repo-GitHub-black)](https://github.com/NewToolAI/envdo)
 
-## 功能特性
+\[ [中文](README_zh.md) | English \]
 
-- 🚀 **临时环境配置** - 为命令行程序临时设置环境变量，不影响系统环境
-- 🎯 **多环境管理** - 支持配置多个环境，方便快速切换
-- 🔒 **敏感信息保护** - 自动隐藏敏感信息（TOKEN、KEY、PASSWORD 等）
-- 💡 **交互式选择** - 支持交互式选择环境配置
-- 🎨 **美观输出** - 使用 rich 库提供清晰美观的终端输出
+Configure temporary environment variables for command-line programs, particularly useful for switching models in claude code.
 
-## 安装
+## Features
+
+- 🚀 **Temporary Environment Configuration** - Set temporary environment variables for command-line programs without affecting system environment
+- 🎯 **Multi-Environment Management** - Support multiple environment configurations for quick switching
+- 🔒 **Sensitive Information Protection** - Automatically hide sensitive information (TOKEN, KEY, PASSWORD, etc.)
+- 💡 **Interactive Selection** - Support interactive environment configuration selection
+- 🎨 **Beautiful Output** - Use the rich library for clear and beautiful terminal output
+
+## Installation
 
 ```bash
 pip install envdo
@@ -20,9 +27,9 @@ pip install envdo
 pip install git+https://github.com/zhangsl0/envdo.git
 ```
 
-## 配置
+## Configuration
 
-创建配置文件 `.envdo.json`（项目目录）或 `~/.envdo.json`（用户目录）：
+Create a configuration file `.envdo.json` (in project directory) or `~/.envdo.json` (in user directory):
 
 ```json
 {
@@ -47,9 +54,9 @@ pip install git+https://github.com/zhangsl0/envdo.git
 }
 ```
 
-## 使用方法
+## Usage
 
-### 列出所有环境配置
+### List All Environment Configurations
 
 ```bash
 envdo list
@@ -57,7 +64,7 @@ envdo list
 
 ![Demo 1](demo-1.png)
 
-### 交互式选择环境
+### Interactive Environment Selection
 
 ```bash
 envdo select <command>
@@ -65,7 +72,7 @@ envdo select <command>
 
 ![Demo 2](demo-2.png)
 
-### 使用指定环境运行命令
+### Run Command with Specified Environment
 
 ```bash
 envdo gpt-5.2 <command>
@@ -73,21 +80,21 @@ envdo gpt-5.2 <command>
 
 ![Demo 3](demo-3.png)
 
-### 其他命令
+### Other Commands
 
 ```bash
-envdo -v          # 显示版本
+envdo -v          # Show version
 envdo --version
-envdo h           # 显示帮助
+envdo h           # Show help
 envdo help
 ```
 
-## 配置说明
+## Configuration Notes
 
-- 配置文件优先级：当前目录的 `.envdo.json` > 用户目录的 `~/.envdo.json`
-- 首次运行时，如果配置文件不存在，会自动创建示例配置文件
-- 敏感信息（包含 TOKEN、KEY、PASSWORD、SECRET、AUTH、CREDENTIAL、API 等关键词）会自动显示为 `***`
+- Configuration file priority: `.envdo.json` in current directory > `~/.envdo.json` in user directory
+- On first run, if the configuration file does not exist, an example configuration file will be automatically created
+- Sensitive information (containing keywords TOKEN, KEY, PASSWORD, SECRET, AUTH, CREDENTIAL, API, etc.) will be automatically displayed as `***`
 
-## 许可证
+## License
 
 MIT License
