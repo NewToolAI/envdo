@@ -105,7 +105,7 @@ def set_env(name: str, config: dict):
     console.print(panel)
     console.print(f'[bold green]✓ Successfully applied {len(selected_config)} environment variables[/bold green]\n')
     
-    return True
+    return selected_config
 
 
 def select_env(config: dict):
@@ -152,8 +152,8 @@ def print_help():
     help_table.add_column('Description', style='white', width=50)
     
     help_table.add_row('[bold]erun name command[/bold]', 'Activate environment by name (e.g., erun dev)')
-    help_table.add_row('[bold]erun l|list[/bold]', 'List all configured environments')
     help_table.add_row('[bold]erun s|select command[/bold]', 'Select and activate an environment interactively')
+    help_table.add_row('[bold]erun l|list[/bold]', 'List all configured environments')
     help_table.add_row('[bold]erun h|help[/bold]', 'Show this help message')
     
     panel = Panel(

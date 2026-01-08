@@ -1,9 +1,15 @@
 [project]
-name = "claude-run"
-version = "0.1.0"
+name = "erun"
+version = "0.0.1"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
     "rich>=14.2.0",
 ]
+
+[project.urls]
+repository = "https://github.com/NewToolAI/erun"
+
+[project.scripts]
+erun = "erun.erun:run"
