@@ -158,7 +158,7 @@ def print_help():
     
     panel = Panel(
         help_table,
-        title='[bold magenta]🔧 envdo - Environment Manager[/bold magenta]',
+        title='[bold magenta]🔧 envdo - Help[/bold magenta]',
         border_style='bright_blue',
         padding=(1, 2)
     )

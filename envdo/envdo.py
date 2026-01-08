@@ -19,6 +19,10 @@ EXAMPLE_CONFIG = '''
 
 
 def run_command(argv: list):
+    if len(argv) <= 2:
+        utils.print_help()
+        sys.exit(0)
+
     result = subprocess.run(argv[2:])
     return result.returncode
 
