@@ -54,7 +54,15 @@ pip install git+https://github.com/NewToolAI/envdo.git
 }
 ```
 
-## 使用方法
+## 代码使用方法
+
+```python
+from envdo import load_envdo
+
+load_envdo('example-1')
+```
+
+## 命令使用方法
 
 ![Demo 0](demo-0.png)
 

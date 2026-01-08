@@ -54,7 +54,16 @@ Create a configuration file `.envdo.json` (in project directory) or `~/.envdo.js
 }
 ```
 
-## Usage
+
+## Programmatic Usage
+
+```python
+from envdo import load_envdo
+
+load_envdo('example-1')
+```
+
+## Command Line Usage
 
 ![Demo 0](demo-0.png)
 
