@@ -1,7 +1,7 @@
 [project]
 name = "envdo"
 version = "0.1.3"
-description = "为命令行程序配置临时的启动环境变量，特别适合为 claude code 配置切换模型。"
+description = "Configure environment variables for Python code or command-line programs, providing dotenv management with group-based switching."
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
