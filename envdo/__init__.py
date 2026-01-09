@@ -44,5 +44,3 @@ def load_envdo(name: str, path: str|None = None) -> dict:
     new_envs = old_envs
     old_envs.update(env_dict)
     os.environ = new_envs
-
-    return dict(env_dict)
