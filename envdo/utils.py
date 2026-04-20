@@ -16,12 +16,7 @@ def find_config():
         if config_path.exists():
             return config_path
     
-    config_path = Path('~/.envdo.json').expanduser()
-    
-    if config_path.exists():
-        return config_path
-    else:
-        return None
+    return Path('~/.envdo.json').expanduser()
 
 
 def load_config(path: str):

@@ -7,15 +7,14 @@ from envdo import utils
 
 VERSION = '0.1.3'
 
-EXAMPLE_CONFIG = '''
-{
+EXAMPLE_CONFIG = '''{
     "example-1": {
         "ANTHROPIC_MODEL": "deepseek-reasoner",
         "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
         "ANTHROPIC_AUTH_TOKEN": "xxx"
     },
     "example-2": {
-        "ENV_VAR": "xxx",
+        "ENV_VAR": "xxx"
     }
 }
 '''
