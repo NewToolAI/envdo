@@ -5,7 +5,7 @@ from pathlib import Path
 from envdo import utils
 
 
-VERSION = '0.1.3'
+VERSION = '0.1.4'
 
 EXAMPLE_CONFIG = '''{
     "example-1": {
