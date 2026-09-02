@@ -1,5 +1,7 @@
 import os
 import json
+import shlex
+import subprocess
 from pathlib import Path
 
 from rich import box
@@ -27,6 +29,49 @@ def load_config(path: str):
         return config
 
     raise FileNotFoundError(f'{path} not found')
+
+
+def _resolve_editor():
+    for var in ('VISUAL', 'EDITOR'):
+        value = os.environ.get(var, '').strip()
+        if value:
+            return shlex.split(value)
+
+    return ['vi']
+
+
+def edit_config(path) -> int:
+    path = Path(path).expanduser()
+    console = Console()
+
+    if not path.exists():
+        print_error(f'Configuration file not found: {path}')
+        return 1
+
+    console.print(f'[cyan]✎ Editing: {path}[/cyan]')
+
+    editor = _resolve_editor()
+    try:
+        result = subprocess.run([*editor, str(path)])
+    except OSError:
+        print_error(
+            f'Failed to launch editor: {" ".join(editor)}. '
+            'Please set $EDITOR or $VISUAL to your preferred editor.'
+        )
+        return 1
+
+    if result.returncode != 0:
+        print_error(f'Editor exited with code {result.returncode}')
+        return result.returncode
+
+    try:
+        json.loads(path.read_text())
+    except (json.JSONDecodeError, OSError) as e:
+        print_error(f'Saved file is not valid JSON: {e}. Path: {path}')
+        return 1
+
+    console.print(f'[bold green]✓ Saved: {path}[/bold green]')
+    return 0
 
 
 def list_env(config: dict):
@@ -163,6 +208,7 @@ def print_help():
     
     help_table.add_row('[bold]envdo name command[/bold]', 'Activate environment by name (e.g., envdo dev claude)')
     help_table.add_row('[bold]envdo s|select|i|interactive command[/bold]', 'Select and activate an environment interactively')
+    help_table.add_row('[bold]envdo e|edit[/bold]', 'Edit the currently used .envdo.json file')
     help_table.add_row('[bold]envdo l|ls|list[/bold]', 'List all configured environments')
     help_table.add_row('[bold]envdo h|help|-h|--help[/bold]', 'Show this help message')
     

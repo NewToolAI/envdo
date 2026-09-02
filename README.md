@@ -91,6 +91,15 @@ envdo gpt-5.2 <command>
 
 ![Demo 3](demo-3.png)
 
+### Edit Configuration File
+
+```bash
+envdo e
+envdo edit
+```
+
+Opens the currently used `.envdo.json` (project directory first, then `~/.envdo.json`) in your editor. The editor is resolved via `$VISUAL` / `$EDITOR` (both support arguments such as `code --wait`), defaulting to `vi`. `envdo e` opens the file even if its JSON is currently invalid, so you can repair it; the file is validated after the editor closes.
+
 ### Other Commands
 
 ```bash
@@ -98,6 +107,8 @@ envdo -v          # Show version
 envdo --version
 envdo -h          # Show help
 envdo --help
+envdo e           # Edit the currently used .envdo.json file
+envdo edit
 ```
 
 ## Configuration Notes
@@ -105,6 +116,7 @@ envdo --help
 - Configuration file priority: `.envdo.json` in current directory > `~/.envdo.json` in user directory
 - On first run, if the configuration file does not exist, an example configuration file will be automatically created
 - Sensitive information (containing keywords TOKEN, KEY, PASSWORD, SECRET, AUTH, CREDENTIAL, etc.) will be automatically displayed as `***`
+- Editor priority for `envdo e`: `$VISUAL` > `$EDITOR` > `vi`
 
 ## License
 

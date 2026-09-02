@@ -90,6 +90,15 @@ envdo gpt-5.2 <command>
 
 ![Demo 3](demo-3.png)
 
+### 编辑配置文件
+
+```bash
+envdo e
+envdo edit
+```
+
+在编辑器中打开当前正在使用的 `.envdo.json`（优先项目目录，其次 `~/.envdo.json`）。编辑器按 `$VISUAL` / `$EDITOR` 解析（两者都支持 `code --wait` 这类带参数写法），未设置时回退到 `vi`。即使当前 JSON 已损坏，`envdo e` 也能打开文件以便修复；编辑器关闭后会校验 JSON 格式。
+
 ### 其他命令
 
 ```bash
@@ -97,6 +106,8 @@ envdo -v          # 显示版本
 envdo --version
 envdo -h          # 显示帮助
 envdo --help
+envdo e           # 编辑当前正在使用的 .envdo.json 文件
+envdo edit
 ```
 
 ## 配置说明
@@ -104,6 +115,7 @@ envdo --help
 - 配置文件优先级：当前目录的 `.envdo.json` > 用户目录的 `~/.envdo.json`
 - 首次运行时，如果配置文件不存在，会自动创建示例配置文件
 - 敏感信息（包含 TOKEN、KEY、PASSWORD、SECRET、AUTH、CREDENTIAL 等关键词）会自动显示为 `***`
+- `envdo e` 的编辑器优先级：`$VISUAL` > `$EDITOR` > `vi`
 
 ## 许可证
 

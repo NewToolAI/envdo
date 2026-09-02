@@ -5,7 +5,7 @@ from pathlib import Path
 from envdo import utils
 
 
-VERSION = '0.1.4'
+VERSION = '0.1.5'
 
 EXAMPLE_CONFIG = '''{
     "example-1": {
@@ -38,6 +38,9 @@ def run_envdo():
     if len(sys.argv) <= 1:
         utils.print_help()
         sys.exit(1)
+
+    if sys.argv[1] in ('e', 'edit'):
+        sys.exit(utils.edit_config(config_path))
 
     try: 
         config = utils.load_config(config_path)
